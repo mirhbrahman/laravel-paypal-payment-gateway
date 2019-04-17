@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('pay_with_paypal');
+})->name('home');
+
+Route::post('/payment/add-funds/paypal', 'PaymentController@payWithPaypal')->name('payment');
+Route::get('/status', 'PaymentController@getPaymentStatus')->name('status');
